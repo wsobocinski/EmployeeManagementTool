@@ -1,14 +1,16 @@
 package com.example.employeemanagementtool.repository
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.LiveData
+import androidx.room.Room
 import com.example.employeemanagementtool.database.EmployeeDatabase
 import com.example.employeemanagementtool.database.EmployeeDatabaseDao
 import com.example.employeemanagementtool.database.models.Employee
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class EmployeeRepository(application: Application) {
+class EmployeeRepository private constructor(application: Application) {
     private val employeeDao: EmployeeDatabaseDao
     private val allEmployees: LiveData<List<Employee>>
 
@@ -37,7 +39,7 @@ class EmployeeRepository(application: Application) {
         }
     }
 
-    suspend fun getEmployeeByFirstAndLastName(firstName: String, lastName: String): Employee? {
+    suspend fun getEmployeeByFirstAndLastName(firstName: String, lastName: String): List<Employee>? {
         return withContext(Dispatchers.IO) {
             employeeDao.getEmployeeByFirstAndLastName(firstName, lastName)
         }
@@ -68,6 +70,19 @@ class EmployeeRepository(application: Application) {
     suspend fun removeAllEmployees() {
         withContext(Dispatchers.IO) {
             employeeDao.removeAllEmployees()
+        }
+    }
+
+    companion object {
+        private var INSTANCE: EmployeeRepository? = null
+
+        fun getInstance(application: Application): EmployeeRepository {
+            var instance = INSTANCE
+            if (instance == null) {
+                instance = EmployeeRepository(application)
+                INSTANCE = instance
+            }
+            return instance
         }
     }
 }

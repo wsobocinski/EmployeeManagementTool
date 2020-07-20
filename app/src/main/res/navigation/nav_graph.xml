@@ -7,7 +7,40 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.employeemanagementtool.ui.main.MainFragment"
+        android:name="com.example.employeemanagementtool.fragments.MainFragment"
         android:label="main_fragment"
-        tools:layout="@layout/main_fragment" />
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_addEmployeeFragment"
+            app:destination="@id/addEmployeeFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_updateEmployeeFragment"
+            app:destination="@id/updateEmployeeFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_removeEmployeeFragment"
+            app:destination="@id/removeEmployeeFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_searchEmployeeFragment"
+            app:destination="@id/searchEmployeeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEmployeeFragment"
+        android:name="com.example.employeemanagementtool.fragments.AddEmployeeFragment"
+        android:label="add_employee_fragment"
+        tools:layout="@layout/add_employee_fragment" />
+    <fragment
+        android:id="@+id/removeEmployeeFragment"
+        android:name="com.example.employeemanagementtool.fragments.RemoveEmployeeFragment"
+        android:label="remove_employee_fragment"
+        tools:layout="@layout/remove_employee_fragment" />
+    <fragment
+        android:id="@+id/updateEmployeeFragment"
+        android:name="com.example.employeemanagementtool.fragments.UpdateEmployeeFragment"
+        android:label="update_employee_fragment"
+        tools:layout="@layout/update_employee_fragment" />
+    <fragment
+        android:id="@+id/searchEmployeeFragment"
+        android:name="com.example.employeemanagementtool.fragments.SearchEmployeeFragment"
+        android:label="search_employee_fragment"
+        tools:layout="@layout/search_employee_fragment" />
 </navigation>

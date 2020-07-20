@@ -34,7 +34,16 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/first_name"
             android:layout_toEndOf="@+id/gender"
+            android:layout_marginEnd="8dp"
             tools:text="33" />
+
+        <TextView
+            android:id="@+id/employee_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/first_name"
+            android:layout_marginEnd="8dp"
+            tools:text="Id: 5"/>
 
         <TextView
             android:id="@+id/gender"
@@ -42,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/first_name"
             android:layout_marginEnd="8dp"
+            android:layout_toEndOf="@id/employee_id"
             tools:text="M" />
 
         <TextView

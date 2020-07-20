@@ -25,7 +25,7 @@ interface EmployeeDatabaseDao {
     fun getEmployeeById(employeeId: Int): Employee?
 
     @Query("SELECT * from employees WHERE first_name = :firstName AND last_name = :lastName")
-    fun getEmployeeByFirstAndLastName(firstName: String, lastName: String):  Employee?
+    fun getEmployeeByFirstAndLastName(firstName: String, lastName: String):  List<Employee>?
 
     @Query("SELECT * from employees ORDER BY employee_id DESC")
     fun getAllEmployees(): LiveData<List<Employee>>

@@ -2,7 +2,6 @@ package com.example.employeemanagementtool
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.employeemanagementtool.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

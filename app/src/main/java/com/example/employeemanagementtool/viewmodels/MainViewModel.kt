@@ -1,4 +1,4 @@
-package com.example.employeemanagementtool.ui.main
+package com.example.employeemanagementtool.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -10,7 +10,7 @@ import kotlinx.coroutines.*
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val employeeRepository: EmployeeRepository = EmployeeRepository(application)
+    private val employeeRepository: EmployeeRepository = EmployeeRepository.getInstance(application)
     private var allEmployees: LiveData<List<Employee>>
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)

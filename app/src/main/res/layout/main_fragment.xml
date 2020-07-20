@@ -7,30 +7,46 @@
 
         <variable
             name="viewModel"
-            type="com.example.employeemanagementtool.ui.main.MainViewModel" />
+            type="com.example.employeemanagementtool.viewmodels.MainViewModel" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.MainFragment">
+        tools:context=".fragments.MainFragment">
+
+        <Button
+            android:id="@+id/add_employee_button"
+            android:text="Add Employee"
+            style="@style/operationButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <Button
+            android:id="@+id/remove_employee_button"
+            android:text="Remove Employee"
+            style="@style/operationButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_employee_button"/>
+        <Button
+            android:id="@+id/search_employee_button"
+            android:text="Search Employee"
+            style="@style/operationButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        <Button
+            android:id="@+id/update_employee_button"
+            android:text="Update Employee"
+            style="@style/operationButton"
+            app:layout_constraintTop_toBottomOf="@+id/search_employee_button"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/remove_employee_button"
             tools:listitem="@layout/employee_item" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_employee_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_add"
-            android:onClick="@{() -> viewModel.addToDatabase()}"
-            app:layout_anchor="@id/recycler_view"
-            app:layout_anchorGravity="bottom|right"
-            android:layout_marginBottom="20dp"/>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

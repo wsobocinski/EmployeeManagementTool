@@ -18,17 +18,19 @@ class RecyclerViewAdapter() : RecyclerView.Adapter<RecyclerViewAdapter.EmployeeV
          private val employeeLastName: TextView = itemView.last_name
          private val employeeAge: TextView = itemView.age
          private val employeeGender: TextView = itemView.gender
+         private val employeeId: TextView = itemView.employee_id
 
          fun bind(employee: Employee) {
              employeeFirstName.text = employee.firstName
              employeeLastName.text = employee.lastName
              employeeAge.text = employee.age.toString()
              employeeGender.text = employee.gender.toString()
+             employeeId.text = "Id: ${employee.employeeId}"
          }
 
 
     }
-    val DIFF_CALLBACK = object:DiffUtil.ItemCallback<Employee>() {
+    private val diffCallback = object:DiffUtil.ItemCallback<Employee>() {
         override fun areItemsTheSame(oldItem: Employee, newItem: Employee): Boolean {
             return oldItem.employeeId == newItem.employeeId
         }
@@ -39,7 +41,7 @@ class RecyclerViewAdapter() : RecyclerView.Adapter<RecyclerViewAdapter.EmployeeV
 
     }
 
-    private val differ = AsyncListDiffer(this, DIFF_CALLBACK)
+    private val differ = AsyncListDiffer(this, diffCallback)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EmployeeViewHolder {
        return EmployeeViewHolder(
@@ -49,7 +51,6 @@ class RecyclerViewAdapter() : RecyclerView.Adapter<RecyclerViewAdapter.EmployeeV
 
     fun submitList(employeeList: List<Employee>) {
         differ.submitList(employeeList)
-//        notifyDataSetChanged()
     }
     override fun getItemCount(): Int {
        return differ.currentList.size
