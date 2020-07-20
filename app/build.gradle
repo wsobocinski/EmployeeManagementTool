@@ -67,5 +67,15 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
 
-    implementation("com.squareup.moshi:moshi-kotlin:1.9.3")
+    // Moshi
+    def moshi_version = "1.9.3"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
+
+    // RecyclerView
+    def recyclerview_version = "1.1.0"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+
+    // CardView
+    def cardview_version = "1.0.0"
+    implementation "androidx.cardview:cardview:$cardview_version"
 }
