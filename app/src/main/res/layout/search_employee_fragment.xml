@@ -32,12 +32,12 @@
             android:text="Search"
             android:layout_below="@id/employee_first_name"
             android:layout_alignParentRight="true"/>
-        <TextView
-            android:id="@+id/searched_employee"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/search_recycler_view"
             android:layout_below="@+id/employee_last_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@{viewModel.searchedResult.toString()}" />
+            tools:listitem="@layout/employee_item"/>
 
     </RelativeLayout>
 </layout>
