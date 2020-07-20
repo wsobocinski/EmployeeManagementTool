@@ -1,13 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.AddEmployeeFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <data>
+
+    </data>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        tools:context=".fragments.AddEmployeeFragment">
 
-</FrameLayout>
+        
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/first_name"
+            android:hint="@string/employee_first_name"
+            android:inputType="text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/last_name"
+            android:hint="@string/employee_last_name"
+            android:inputType="text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/age"
+            android:hint="@string/employee_age"
+            android:inputType="number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/first_name"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/gender"
+            android:hint="@string/employee_gender"
+            android:inputType="text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/last_name"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/addresses"
+            android:hint="@string/employee_adresses"
+            android:inputType="text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/age"
+            android:layout_alignParentLeft="true"/>
+        <Button
+            android:id="@+id/add_employee_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_employee_button"
+            android:layout_below="@id/addresses"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+</layout>

@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.employeemanagementtool.R
 import com.example.employeemanagementtool.RecyclerViewAdapter
 import com.example.employeemanagementtool.databinding.SearchEmployeeFragmentBinding
+import com.example.employeemanagementtool.setUtilContext
+import com.example.employeemanagementtool.showToast
 import com.example.employeemanagementtool.viewmodels.SearchEmployeeViewModel
 
 class SearchEmployeeFragment : Fragment() {
@@ -35,9 +37,16 @@ class SearchEmployeeFragment : Fragment() {
         binding.searchButton.setOnClickListener {
             val firstName = binding.employeeFirstName.text.toString()
             val lastName = binding.employeeLastName.text.toString()
+            val id = binding.employeeId.text.toString()
 
+            setUtilContext(context)
             if (firstName.trim().isEmpty() || lastName.trim().isEmpty()) {
-                Toast.makeText(context, "No records found", Toast.LENGTH_LONG).show()
+                if (id.isNotEmpty()){
+                    searchEmployeeViewModel.getEmployeeById(id.toInt())
+                }else {
+                    showToast("No results found.")
+                }
+
             } else {
                 searchEmployeeViewModel.getEmployeeByFirstAndLastName(firstName, lastName)
             }

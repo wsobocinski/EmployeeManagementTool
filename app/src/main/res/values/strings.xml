@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">EmployeeManagementTool</string>
+    <string name="employee_first_name">Employee first name</string>
+    <string name="employee_last_name">Employee last name</string>
+    <string name="employee_age">Employee age</string>
+    <string name="employee_gender">Employee gender</string>
+    <string name="employee_adresses">Employee adresses</string>
+    <string name="add_employee_button">Add employee</string>
+    <string name="employee_id">Employee id</string>
+    <string name="update_employee">Update Employee</string>
 </resources>
